@@ -1,0 +1,2575 @@
+> 📅 Archive générée le : 30/05/2026 18:47:25
+
+// ==========================================
+// 📂 FICHIER : \src\App.css
+// ==========================================
+
+```css
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.hero {
+  position: relative;
+
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
+
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .framework,
+  .vite {
+    position: absolute;
+  }
+
+  .framework {
+    z-index: 1;
+    top: 34px;
+    height: 28px;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+      scale(1.4);
+  }
+
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+      scale(0.8);
+  }
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
+
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border);
+  text-align: left;
+
+  & > div {
+    flex: 1 1 0;
+    padding: 32px;
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+  }
+
+  .icon {
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+#docs {
+  border-right: 1px solid var(--border);
+
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+
+  .logo {
+    height: 18px;
+  }
+
+  a {
+    color: var(--text-h);
+    font-size: 16px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\App.tsx
+// ==========================================
+
+```tsx
+import './index.css'
+import { BackgroundEffects } from './components/shared'
+import { Navbar, Footer } from './components/layout'
+import {
+  Hero,
+  PainPoints,
+  SolutionBridge,
+  Features,
+  SocialProof,
+  Pricing,
+  FAQ,
+  CTAFinal,
+} from './components/sections'
+
+function App() {
+  return (
+    <div style={{ position: 'relative', minHeight: '100dvh', background: '#050505', color: '#fff', overflowX: 'hidden' }}>
+      <BackgroundEffects />
+      <div style={{ position: 'relative', zIndex: 10 }}>
+        <Navbar />
+        <main>
+          <Hero />
+          <PainPoints />
+          <SolutionBridge />
+          <Features />
+          <SocialProof />
+          <Pricing />
+          <FAQ />
+          <CTAFinal />
+        </main>
+        <Footer />
+      </div>
+    </div>
+  )
+}
+
+export default App
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\CosmicFlow.tsx
+// ==========================================
+
+```tsx
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\layout\Footer.tsx
+// ==========================================
+
+```tsx
+export default function Footer() {
+  return (
+    <footer style={{
+      background: '#050505',
+      borderTop: '1px solid rgba(224,224,224,0.08)',
+      padding: '3rem 1.5rem 2rem',
+    }}>
+      <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+
+        {/* Top row */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2.5rem', justifyContent: 'space-between', marginBottom: '2.5rem' }}>
+
+          {/* Brand */}
+          <div style={{ maxWidth: '22rem' }}>
+            <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 900, fontSize: '1.1rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+              <span style={{ color: '#E0E0E0' }}>LOCATE</span>
+              <span style={{ color: '#fff' }}> CARE</span>
+            </div>
+            <p style={{ color: '#6B7280', fontSize: '0.875rem', lineHeight: 1.6, margin: 0 }}>
+              Vos données médicales ne quittent jamais votre téléphone.
+            </p>
+            <p style={{ marginTop: '0.75rem', color: '#4B5563', fontSize: '0.75rem', fontFamily: 'JetBrains Mono, monospace' }}>
+              Front-end uniquement. Aucune base de données client sur le cloud.
+            </p>
+          </div>
+
+          {/* Links */}
+          <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
+            <div>
+              <p style={{ color: '#E0E0E0', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Légal</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <a href="/cgu" style={footerLinkStyle}>CGU</a>
+                <a href="/confidentialite" style={footerLinkStyle}>Politique de confidentialité</a>
+                <a href="https://locatesystems.com" target="_blank" rel="noopener noreferrer" style={footerLinkStyle}>locatesystems.com</a>
+              </div>
+            </div>
+
+            <div>
+              <p style={{ color: '#E0E0E0', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Réseaux</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <a href="https://linkedin.com/company/locate-systems" target="_blank" rel="noopener noreferrer" style={footerLinkStyle}>LinkedIn — Locate Systems</a>
+                <a href="https://instagram.com/nicolas_loesel" target="_blank" rel="noopener noreferrer" style={footerLinkStyle}>Instagram — @nicolas_loesel</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div style={{ borderTop: '1px solid rgba(224,224,224,0.06)', paddingTop: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+            <p style={{ color: '#4B5563', fontSize: '0.75rem', margin: 0 }}>
+              © 2026 Nicolas Loesel EI — SIRET 101 891 190 00015 — APE 6201Z
+            </p>
+            <p style={{ color: '#374151', fontSize: '0.7rem', margin: 0 }}>
+              209 rue Jacques Brel, 30730 FONS, France
+            </p>
+          </div>
+          <span style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            padding: '0.25rem 0.7rem',
+            background: 'rgba(224,224,224,0.04)',
+            border: '1px solid rgba(224,224,224,0.10)',
+            borderRadius: '0.25rem',
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.65rem',
+            color: '#6B7280',
+          }}>
+            🔒 IP protégée — Dépôt e-Soleau DSO2026012471
+          </span>
+        </div>
+
+      </div>
+    </footer>
+  )
+}
+
+const footerLinkStyle: React.CSSProperties = {
+  color: '#6B7280',
+  fontSize: '0.85rem',
+  textDecoration: 'none',
+  transition: 'color 0.15s',
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\layout\index.ts
+// ==========================================
+
+```ts
+export { default as Navbar } from './Navbar'
+export { default as Footer } from './Footer'
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\layout\Navbar.tsx
+// ==========================================
+
+```tsx
+import { useState } from 'react'
+
+const SIGNUP_URL = import.meta.env.VITE_SIGNUP_URL ?? 'https://locate-home.vercel.app'
+
+interface NavbarProps {
+  accentColor?: string
+}
+
+export default function Navbar({ accentColor = '#E0E0E0' }: NavbarProps) {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const scrollTo = (id: string) => {
+    setMenuOpen(false)
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  return (
+    <>
+      <nav style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 50,
+        background: 'rgba(5,5,5,0.80)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        borderBottom: '1px solid rgba(224,224,224,0.08)',
+      }}>
+        <div style={{
+          maxWidth: '72rem',
+          margin: '0 auto',
+          padding: '0 1.5rem',
+          height: '3.5rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+          {/* Logo */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 900, fontSize: '1.1rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              <span style={{ color: accentColor }}>LOCATE</span>
+              <span style={{ color: '#fff' }}> CARE</span>
+            </span>
+
+            {/* Status badge */}
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              padding: '0.2rem 0.6rem',
+              borderRadius: '9999px',
+              background: 'rgba(34,197,94,0.10)',
+              border: '1px solid rgba(34,197,94,0.25)',
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '0.65rem',
+              color: '#22C55E',
+              letterSpacing: '0.05em',
+            }}>
+              <span style={{
+                width: '6px',
+                height: '6px',
+                borderRadius: '50%',
+                background: '#22C55E',
+                boxShadow: '0 0 6px #22C55E',
+                animation: 'nodePulse 2s ease-in-out infinite',
+                display: 'inline-block',
+              }} />
+              EN LIGNE V1.0
+            </span>
+          </div>
+
+          {/* Desktop nav */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="desktop-nav">
+            <button onClick={() => scrollTo('features')} style={linkStyle}>Fonctionnalités</button>
+            <button onClick={() => scrollTo('tarifs')} style={linkStyle}>Tarifs</button>
+            <a href={SIGNUP_URL} style={{
+              padding: '0.45rem 1.1rem',
+              border: `1px solid ${accentColor}`,
+              borderRadius: '0.375rem',
+              color: accentColor,
+              fontFamily: 'Space Grotesk, sans-serif',
+              fontWeight: 600,
+              fontSize: '0.85rem',
+              textDecoration: 'none',
+              transition: 'background 0.2s',
+            }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(224,224,224,0.08)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+            >
+              Créer mon compte
+            </a>
+          </div>
+
+          {/* Hamburger */}
+          <button
+            onClick={() => setMenuOpen(v => !v)}
+            className="hamburger-btn"
+            aria-label="Menu"
+            style={{
+              display: 'none',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '0.25rem',
+              color: '#E0E0E0',
+            }}
+          >
+            <HamburgerIcon open={menuOpen} />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile drawer */}
+      {menuOpen && (
+        <div style={{
+          position: 'fixed',
+          top: '3.5rem',
+          left: 0,
+          right: 0,
+          zIndex: 49,
+          background: 'rgba(5,5,5,0.97)',
+          backdropFilter: 'blur(16px)',
+          borderBottom: '1px solid rgba(224,224,224,0.1)',
+          padding: '1.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1.25rem',
+        }}>
+          <button onClick={() => scrollTo('features')} style={{ ...linkStyle, textAlign: 'left', fontSize: '1rem' }}>Fonctionnalités</button>
+          <button onClick={() => scrollTo('tarifs')} style={{ ...linkStyle, textAlign: 'left', fontSize: '1rem' }}>Tarifs</button>
+          <a href={SIGNUP_URL} style={{
+            padding: '0.75rem 1.25rem',
+            border: `1px solid ${accentColor}`,
+            borderRadius: '0.375rem',
+            color: accentColor,
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontWeight: 600,
+            fontSize: '0.95rem',
+            textDecoration: 'none',
+            textAlign: 'center',
+          }}>
+            Créer mon compte
+          </a>
+        </div>
+      )}
+
+      <style>{`
+        @media (max-width: 768px) {
+          .desktop-nav { display: none !important; }
+          .hamburger-btn { display: block !important; }
+        }
+      `}</style>
+    </>
+  )
+}
+
+const linkStyle: React.CSSProperties = {
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  fontFamily: 'Space Grotesk, sans-serif',
+  fontSize: '0.875rem',
+  color: '#9CA3AF',
+  transition: 'color 0.15s',
+  textDecoration: 'none',
+}
+
+function HamburgerIcon({ open }: { open: boolean }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      {open ? (
+        <>
+          <line x1="4" y1="4" x2="18" y2="18" stroke="#E0E0E0" strokeWidth="2" strokeLinecap="round" />
+          <line x1="18" y1="4" x2="4" y2="18" stroke="#E0E0E0" strokeWidth="2" strokeLinecap="round" />
+        </>
+      ) : (
+        <>
+          <line x1="3" y1="6"  x2="19" y2="6"  stroke="#E0E0E0" strokeWidth="2" strokeLinecap="round" />
+          <line x1="3" y1="11" x2="19" y2="11" stroke="#E0E0E0" strokeWidth="2" strokeLinecap="round" />
+          <line x1="3" y1="16" x2="19" y2="16" stroke="#E0E0E0" strokeWidth="2" strokeLinecap="round" />
+        </>
+      )}
+    </svg>
+  )
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\sections\CTAFinal.tsx
+// ==========================================
+
+```tsx
+import { useEffect, useRef } from 'react'
+
+const SIGNUP_URL = import.meta.env.VITE_SIGNUP_URL ?? '/signup'
+
+export default function CTAFinal() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return
+          const els = sectionRef.current?.querySelectorAll<HTMLElement>('[data-animate]')
+          els?.forEach((el, i) => {
+            setTimeout(() => {
+              el.style.opacity = '1'
+              el.style.transform = 'translateY(0)'
+            }, i * 100)
+          })
+          observer.disconnect()
+        })
+      },
+      { threshold: 0.15 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section
+      ref={sectionRef}
+      style={{
+        position: 'relative',
+        padding: '7rem 1.5rem',
+        overflow: 'hidden',
+        background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(224,224,224,0.05) 0%, #050505 70%)',
+      }}
+    >
+      {/* Decorative glow orb */}
+      <div style={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '40rem',
+        height: '20rem',
+        background: 'radial-gradient(ellipse, rgba(224,224,224,0.04) 0%, transparent 70%)',
+        pointerEvents: 'none',
+        zIndex: 0,
+      }} />
+
+      <div style={{ maxWidth: '42rem', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+
+        <h2
+          data-animate
+          style={{
+            margin: '0 0 0.5rem',
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+            color: '#fff',
+            letterSpacing: '-0.03em',
+            lineHeight: 1.05,
+            opacity: 0,
+            transform: 'translateY(1.5rem)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+          }}
+        >
+          Commencez maintenant.
+        </h2>
+
+        <h2
+          data-animate
+          style={{
+            margin: '0 0 1.75rem',
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+            letterSpacing: '-0.03em',
+            lineHeight: 1.05,
+            background: 'linear-gradient(90deg, #E0E0E0 0%, #fff 60%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            opacity: 0,
+            transform: 'translateY(1.5rem)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+          }}
+        >
+          C'est gratuit. C'est privé.
+        </h2>
+
+        <p
+          data-animate
+          style={{
+            margin: '0 0 2.5rem',
+            color: '#9CA3AF',
+            fontSize: '1.05rem',
+            lineHeight: 1.65,
+            opacity: 0,
+            transform: 'translateY(1.5rem)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+          }}
+        >
+          Rejoignez les premiers utilisateurs qui reprennent la main sur leur santé numérique.
+        </p>
+
+        {/* Primary CTA */}
+        <div
+          data-animate
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '1rem',
+            opacity: 0,
+            transform: 'translateY(1.5rem)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+          }}
+        >
+          <a
+            href={SIGNUP_URL}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '100%',
+              maxWidth: '22rem',
+              padding: '1rem 2rem',
+              background: 'rgba(224,224,224,0.10)',
+              border: '1px solid rgba(224,224,224,0.55)',
+              borderRadius: '0.625rem',
+              color: '#E0E0E0',
+              fontFamily: 'Space Grotesk, sans-serif',
+              fontWeight: 800,
+              fontSize: '1rem',
+              textDecoration: 'none',
+              letterSpacing: '0.01em',
+              boxShadow: '0 0 32px rgba(224,224,224,0.14), inset 0 1px 0 rgba(255,255,255,0.08)',
+              animation: 'ctaPulse 3s ease-in-out infinite',
+              transition: 'box-shadow 0.2s, background 0.2s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.boxShadow = '0 0 52px rgba(224,224,224,0.28), inset 0 1px 0 rgba(255,255,255,0.12)'
+              e.currentTarget.style.background = 'rgba(224,224,224,0.16)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.boxShadow = '0 0 32px rgba(224,224,224,0.14), inset 0 1px 0 rgba(255,255,255,0.08)'
+              e.currentTarget.style.background = 'rgba(224,224,224,0.10)'
+            }}
+          >
+            Créer mon dossier médical gratuit
+          </a>
+
+          <p style={{
+            margin: 0,
+            color: '#4B5563',
+            fontSize: '0.7rem',
+            fontFamily: 'JetBrains Mono, monospace',
+          }}>
+            * Inscription email requise. Gratuit. Résiliable à tout moment pour le PREMIUM.
+          </p>
+
+          {/* Separator */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', width: '100%', maxWidth: '22rem', color: '#374151', fontSize: '0.75rem' }}>
+            <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.07)' }} />
+            <span>ou</span>
+            <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.07)' }} />
+          </div>
+
+          <a
+            href="https://locatesystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              padding: '0.75rem 1.5rem',
+              border: '1px solid rgba(224,224,224,0.15)',
+              borderRadius: '0.5rem',
+              color: '#6B7280',
+              fontFamily: 'Space Grotesk, sans-serif',
+              fontWeight: 600,
+              fontSize: '0.875rem',
+              textDecoration: 'none',
+              transition: 'border-color 0.2s, color 0.2s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = 'rgba(224,224,224,0.30)'
+              e.currentTarget.style.color = '#E0E0E0'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'rgba(224,224,224,0.15)'
+              e.currentTarget.style.color = '#6B7280'
+            }}
+          >
+            En savoir plus sur l'écosystème LOCATE SYSTEMS
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes ctaPulse {
+          0%, 100% { transform: scale(1); }
+          50%       { transform: scale(1.018); }
+        }
+      `}</style>
+    </section>
+  )
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\sections\FAQ.tsx
+// ==========================================
+
+```tsx
+import { useState, useRef, useEffect } from 'react'
+
+const FAQS = [
+  {
+    q: 'Mes données médicales sont-elles vraiment sécurisées ?',
+    a: "Oui, par conception architecturale. Toutes vos données (ordonnances, documents, profils) sont stockées exclusivement dans IndexedDB — la base de données locale de votre navigateur. Aucun serveur distant ne les reçoit. L'application fonctionne même sans connexion internet pour la consultation de vos données.",
+  },
+  {
+    q: "L'IA analyse-t-elle mes documents de santé ?",
+    a: "L'IA (Gemini 2.5 Flash) reçoit temporairement l'image que vous scannez pour en extraire les informations. Ce traitement est éphémère : l'image n'est jamais stockée sur nos serveurs ni sur ceux de Google au-delà de l'analyse. Vous validez ensuite chaque information extraite avant qu'elle entre dans votre dossier.",
+  },
+  {
+    q: 'Pourquoi dois-je créer un compte si tout est local ?',
+    a: "Le compte Supabase sert uniquement à deux usages : authentifier votre identité pour la gestion de votre abonnement PREMIUM via Stripe, et vous permettre de récupérer l'accès à votre PIN CARE en cas d'oubli. Aucune donnée médicale ne transite par notre backend.",
+  },
+  {
+    q: "Que se passe-t-il si je perds ou change de téléphone ?",
+    a: "LOCATE CARE génère un fichier de sauvegarde chiffré au format .loc-care. Ce fichier contient l'intégralité de votre dossier et peut être importé sur un nouvel appareil. Le chiffrement garantit qu'il est illisible sans votre accès authentifié.",
+  },
+  {
+    q: "L'application fonctionne-t-elle sur iPhone et Android ?",
+    a: "LOCATE CARE est une Progressive Web App (PWA) universelle. Elle fonctionne sur tout navigateur moderne : Safari iOS, Chrome Android, Firefox. Aucune installation depuis l'App Store ou Google Play n'est requise. Ajoutez simplement le site à votre écran d'accueil.",
+  },
+]
+
+export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return
+          const items = sectionRef.current?.querySelectorAll<HTMLElement>('[data-faq]')
+          items?.forEach((el, i) => {
+            setTimeout(() => {
+              el.style.opacity = '1'
+              el.style.transform = 'translateY(0)'
+            }, i * 70)
+          })
+          observer.disconnect()
+        })
+      },
+      { threshold: 0.1 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section ref={sectionRef} style={{ background: '#0A0A0A', padding: '6rem 1.5rem' }}>
+      <div style={{ maxWidth: '48rem', margin: '0 auto' }}>
+
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <h2 style={{
+            margin: '0 0 1rem',
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
+            color: '#fff',
+            letterSpacing: '-0.02em',
+            lineHeight: 1.2,
+          }}>
+            Vos questions sur la confidentialité.{' '}
+            <span style={{ color: '#9CA3AF', fontWeight: 700 }}>Nos réponses techniques.</span>
+          </h2>
+        </div>
+
+        {/* Accordion */}
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {FAQS.map((faq, i) => (
+            <AccordionItem
+              key={i}
+              index={i}
+              question={faq.q}
+              answer={faq.a}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+              isLast={i === FAQS.length - 1}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+interface AccordionItemProps {
+  index: number
+  question: string
+  answer: string
+  isOpen: boolean
+  onToggle: () => void
+  isLast: boolean
+}
+
+function AccordionItem({ index, question, answer, isOpen, onToggle, isLast }: AccordionItemProps) {
+  const bodyRef = useRef<HTMLDivElement>(null)
+
+  return (
+    <div
+      data-faq
+      style={{
+        borderBottom: isLast ? 'none' : '1px solid rgba(255,255,255,0.08)',
+        opacity: 0,
+        transform: 'translateY(1rem)',
+        transition: 'opacity 0.5s ease, transform 0.5s ease',
+      }}
+    >
+      <button
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        style={{
+          width: '100%',
+          background: isOpen ? 'rgba(255,255,255,0.02)' : 'transparent',
+          border: 'none',
+          cursor: 'pointer',
+          padding: '1.4rem 0',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '1rem',
+          textAlign: 'left',
+          transition: 'background 0.15s',
+        }}
+        onMouseEnter={e => { if (!isOpen) e.currentTarget.style.background = 'rgba(255,255,255,0.02)' }}
+        onMouseLeave={e => { if (!isOpen) e.currentTarget.style.background = 'transparent' }}
+      >
+        <span style={{
+          fontFamily: 'Space Grotesk, sans-serif',
+          fontWeight: 700,
+          fontSize: '0.975rem',
+          color: isOpen ? '#F3F4F6' : '#D1D5DB',
+          lineHeight: 1.4,
+          transition: 'color 0.15s',
+        }}>
+          <span style={{
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.7rem',
+            color: '#4B5563',
+            marginRight: '0.75rem',
+          }}>
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          {question}
+        </span>
+
+        <ChevronIcon open={isOpen} />
+      </button>
+
+      {/* Animated body */}
+      <div
+        ref={bodyRef}
+        style={{
+          overflow: 'hidden',
+          maxHeight: isOpen ? '20rem' : '0',
+          transition: 'max-height 0.32s ease',
+        }}
+      >
+        <p style={{
+          margin: 0,
+          padding: '0 0 1.5rem',
+          color: '#9CA3AF',
+          fontSize: '0.9rem',
+          lineHeight: 1.75,
+          paddingLeft: '2.1rem',
+        }}>
+          {answer}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      style={{
+        flexShrink: 0,
+        color: open ? '#E0E0E0' : '#6B7280',
+        transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
+        transition: 'transform 0.28s ease, color 0.15s',
+      }}
+    >
+      <path d="M4 7l5 5 5-5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\sections\Features.tsx
+// ==========================================
+
+```tsx
+import { useEffect, useRef } from 'react'
+
+type BadgeType = 'FREE' | 'PREMIUM' | 'ARCHITECTURE'
+
+interface Feature {
+  id: string
+  badge: BadgeType
+  title: string
+  description: string
+  tech: string
+  icon: React.ReactNode
+}
+
+const FEATURES: Feature[] = [
+  {
+    id: 'scanner',
+    badge: 'FREE',
+    title: 'Scanner IA Médical',
+    description: "Photographiez n'importe quel document médical. L'IA extrait automatiquement les informations clés (médicament, dosage, dates) et les classe dans votre dossier après votre validation.",
+    tech: 'Gemini 2.5 Flash Vision · Sas de validation humaine · Zéro stockage serveur',
+    icon: <ScanIcon />,
+  },
+  {
+    id: 'medsecure',
+    badge: 'FREE',
+    title: 'MedSecure — Coffre-Fort Médical',
+    description: "Six catégories : Ordonnances, Couverture Santé, Imagerie, Analyses Labo, Médecine Générale, Spécialistes. Tout votre historique médical en un seul endroit sécurisé.",
+    tech: 'IndexedDB local · Recherche Fuse.js · Export/Import .loc-care chiffré',
+    icon: <VaultIcon />,
+  },
+  {
+    id: 'oms',
+    badge: 'PREMIUM',
+    title: 'Fiche Urgence OMS (IPS-FR)',
+    description: "Générez en un clic votre fiche médicale internationale (International Patient Summary). Identité INS, allergies, groupe sanguin, traitements actifs. Prêt pour les urgences, partout dans le monde.",
+    tech: 'Norme IPS-FR OMS · PDF généré 100% localement · Standard FHIR compatible',
+    icon: <GlobeIcon />,
+  },
+  {
+    id: 'famille',
+    badge: 'PREMIUM',
+    title: 'Suivi Familial Complet',
+    description: "Gérez les profils de vos enfants et proches. Carnet vaccinal dynamique, journal de santé, courbes de croissance. Un dossier médical complet pour chaque membre de votre famille.",
+    tech: 'Profils INS stricts · Carnet vaccinal · Journal symptômes',
+    icon: <FamilyIcon />,
+  },
+  {
+    id: 'zero-serveur',
+    badge: 'ARCHITECTURE',
+    title: 'Zéro-Serveur — Souveraineté Absolue',
+    description: "Toutes vos données médicales restent sur votre appareil. Aucune base de données distante. Architecture Local-First certifiée avec exemption HDS native. RGPD par conception.",
+    tech: 'IndexedDB uniquement · Exemption HDS · RGPD Art.17 natif · Privacy by Design',
+    icon: <ShieldOffIcon />,
+  },
+]
+
+const BADGE_STYLES: Record<BadgeType, React.CSSProperties> = {
+  FREE: {
+    background: 'rgba(224,224,224,0.08)',
+    color: '#E0E0E0',
+    border: '1px solid rgba(224,224,224,0.20)',
+  },
+  PREMIUM: {
+    background: 'rgba(245,158,11,0.10)',
+    color: '#FBBF24',
+    border: '1px solid rgba(245,158,11,0.25)',
+  },
+  ARCHITECTURE: {
+    background: 'rgba(59,130,246,0.10)',
+    color: '#60A5FA',
+    border: '1px solid rgba(59,130,246,0.25)',
+  },
+}
+
+export default function Features() {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return
+          const el = entry.target as HTMLElement
+          const delay = Number(el.dataset.delay ?? 0)
+          setTimeout(() => {
+            el.style.opacity = '1'
+            el.style.transform = 'translateY(0)'
+          }, delay)
+          observer.unobserve(el)
+        })
+      },
+      { threshold: 0.12 }
+    )
+
+    cardRefs.current.forEach(el => {
+      if (!el) return
+      el.style.opacity = '0'
+      el.style.transform = 'translateY(2.5rem)'
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
+      observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section id="features" style={{ padding: '6rem 1.5rem', background: '#050505' }}>
+      <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <h2 style={{
+            margin: '0 0 1rem',
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)',
+            color: '#fff',
+            letterSpacing: '-0.02em',
+            lineHeight: 1.15,
+          }}>
+            LOCATE CARE. L'application qui garde tout.{' '}
+            <span style={{ color: '#9CA3AF', fontWeight: 700 }}>Sans serveur.</span>
+          </h2>
+          <p style={{ color: '#6B7280', fontSize: '1rem', maxWidth: '36rem', margin: '0 auto', lineHeight: 1.6 }}>
+            Cinq fonctions. Une architecture unique. Votre souveraineté médicale, enfin réelle.
+          </p>
+        </div>
+
+        {/* Feature rows — alternating left/right on desktop */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          {FEATURES.map((feat, i) => (
+            <div
+              key={feat.id}
+              ref={el => { cardRefs.current[i] = el }}
+              data-delay={i * 90}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.5rem',
+                padding: '2rem',
+                background: i % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'rgba(255,255,255,0.015)',
+                border: '1px solid rgba(224,224,224,0.08)',
+                borderRadius: '1rem',
+                transition: 'border-color 0.2s, box-shadow 0.2s',
+              }}
+              className={`feature-card ${i % 2 === 1 ? 'feature-card--reverse' : ''}`}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(224,224,224,0.18)'
+                e.currentTarget.style.boxShadow = '0 0 36px rgba(224,224,224,0.06)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(224,224,224,0.08)'
+                e.currentTarget.style.boxShadow = 'none'
+              }}
+            >
+              {/* Icon block */}
+              <div className="feature-icon-block" style={{
+                flexShrink: 0,
+                width: '3.5rem',
+                height: '3.5rem',
+                borderRadius: '0.75rem',
+                background: 'rgba(224,224,224,0.06)',
+                border: '1px solid rgba(224,224,224,0.12)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#E0E0E0',
+              }}>
+                {feat.icon}
+              </div>
+
+              {/* Text block */}
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
+                  <span style={{
+                    ...BADGE_STYLES[feat.badge],
+                    fontFamily: 'JetBrains Mono, monospace',
+                    fontSize: '0.65rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    padding: '0.2rem 0.6rem',
+                    borderRadius: '9999px',
+                  }}>
+                    {feat.badge}
+                  </span>
+                </div>
+
+                <h3 style={{
+                  margin: 0,
+                  fontFamily: 'Space Grotesk, sans-serif',
+                  fontWeight: 800,
+                  fontSize: 'clamp(1.05rem, 2vw, 1.3rem)',
+                  color: '#F3F4F6',
+                  letterSpacing: '-0.01em',
+                  lineHeight: 1.25,
+                }}>
+                  {feat.title}
+                </h3>
+
+                <p style={{
+                  margin: 0,
+                  color: '#9CA3AF',
+                  fontSize: '0.9rem',
+                  lineHeight: 1.7,
+                  maxWidth: '52rem',
+                }}>
+                  {feat.description}
+                </p>
+
+                <p style={{
+                  margin: 0,
+                  fontFamily: 'JetBrains Mono, monospace',
+                  fontSize: '0.68rem',
+                  color: '#4B5563',
+                  letterSpacing: '0.02em',
+                }}>
+                  {feat.tech}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @media (min-width: 768px) {
+          .feature-card {
+            flex-direction: row !important;
+            align-items: flex-start !important;
+          }
+          .feature-card--reverse {
+            flex-direction: row-reverse !important;
+          }
+          .feature-icon-block {
+            width: 4rem !important;
+            height: 4rem !important;
+            margin-top: 0.25rem;
+          }
+        }
+      `}</style>
+    </section>
+  )
+}
+
+/* SVG icons */
+function ScanIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="5" height="5" rx="1" />
+      <rect x="16" y="3" width="5" height="5" rx="1" />
+      <rect x="3" y="16" width="5" height="5" rx="1" />
+      <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+      <path d="M21 21v.01" />
+      <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+      <path d="M3 12h.01" />
+      <path d="M12 3h.01" />
+      <path d="M12 16v.01" />
+      <path d="M16 12h1" />
+      <path d="M21 12v.01" />
+      <path d="M12 21v-1" />
+    </svg>
+  )
+}
+
+function VaultIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="4" width="20" height="14" rx="2" />
+      <circle cx="12" cy="11" r="3" />
+      <path d="M12 8v1M12 13v1M9 11H8M15 11h1" />
+      <path d="M6 20h12" />
+    </svg>
+  )
+}
+
+function GlobeIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2" />
+      <path d="M2 12h20" />
+      <path d="M12 2v4M12 18v4" />
+    </svg>
+  )
+}
+
+function FamilyIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  )
+}
+
+function ShieldOffIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+    </svg>
+  )
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\sections\Hero.tsx
+// ==========================================
+
+```tsx
+import { useEffect, useRef } from 'react'
+
+const SIGNUP_URL    = import.meta.env.VITE_SIGNUP_URL    ?? '/signup'
+const SUPABASE_URL  = import.meta.env.VITE_SUPABASE_URL  ?? ''
+
+// Sanity-check at module load (visible in browser console during dev)
+if (import.meta.env.DEV) {
+  fetch(`${SUPABASE_URL}/auth/v1/health`)
+    .then(r => console.info(`[CARE] Supabase Auth → ${r.status} ${r.statusText} (401 = projet actif ✓)`))
+    .catch(e => console.error('[CARE] Supabase Auth unreachable:', e))
+}
+
+export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const els = sectionRef.current?.querySelectorAll<HTMLElement>('[data-animate]')
+    if (!els) return
+    els.forEach((el, i) => {
+      el.style.opacity = '0'
+      el.style.transform = 'translateY(1.5rem)'
+      setTimeout(() => {
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
+        el.style.opacity = '1'
+        el.style.transform = 'translateY(0)'
+      }, 120 + i * 110)
+    })
+  }, [])
+
+  return (
+    <section
+      ref={sectionRef}
+      style={{
+        minHeight: '100dvh',
+        padding: 'env(safe-area-inset-top, 0) 1.5rem env(safe-area-inset-bottom, 0)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <div style={{
+        maxWidth: '72rem',
+        width: '100%',
+        margin: '0 auto',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '4rem',
+        alignItems: 'center',
+      }}
+        className="hero-inner"
+      >
+        {/* Left — text content */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '38rem' }} className="hero-text">
+
+          {/* Badges */}
+          <div data-animate style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+            {[
+              { icon: '🟢', label: 'EN LIGNE — V1.0' },
+              { icon: '🔒', label: 'Zéro-Serveur' },
+              { icon: '🇫🇷', label: 'RGPD Natif' },
+            ].map(b => (
+              <span key={b.label} style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                padding: '0.3rem 0.75rem',
+                borderRadius: '9999px',
+                background: 'rgba(224,224,224,0.05)',
+                border: '1px solid rgba(224,224,224,0.15)',
+                backdropFilter: 'blur(8px)',
+                fontFamily: 'JetBrains Mono, monospace',
+                fontSize: '0.7rem',
+                color: '#E0E0E0',
+                letterSpacing: '0.04em',
+                boxShadow: '0 0 20px rgba(224,224,224,0.06)',
+              }}>
+                {b.icon} {b.label}
+              </span>
+            ))}
+          </div>
+
+          {/* H1 */}
+          <div data-animate>
+            <h1 style={{
+              margin: 0,
+              fontFamily: 'Space Grotesk, sans-serif',
+              fontWeight: 900,
+              textTransform: 'uppercase',
+              letterSpacing: '-0.02em',
+              lineHeight: 1.08,
+              fontSize: 'clamp(2.5rem, 5vw, 5rem)',
+              color: '#fff',
+            }}>
+              Votre dossier médical complet.
+              <br />
+              <span style={{
+                background: 'linear-gradient(90deg, #E0E0E0 0%, #fff 60%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                Jamais en ligne. Toujours là.
+              </span>
+            </h1>
+          </div>
+
+          {/* Subtitle */}
+          <p data-animate style={{
+            margin: 0,
+            color: '#9CA3AF',
+            fontSize: '1.05rem',
+            lineHeight: 1.65,
+            maxWidth: '34rem',
+          }}>
+            Scannez vos ordonnances, archivez vos documents médicaux, générez votre fiche d'urgence OMS.
+            Le tout stocké uniquement sur votre téléphone.
+          </p>
+
+          {/* CTAs */}
+          <div data-animate style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center' }}>
+              <a
+                href={SIGNUP_URL}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  padding: '0.85rem 1.75rem',
+                  background: 'rgba(224,224,224,0.10)',
+                  border: '1px solid rgba(224,224,224,0.50)',
+                  borderRadius: '0.5rem',
+                  color: '#E0E0E0',
+                  fontFamily: 'Space Grotesk, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '0.95rem',
+                  textDecoration: 'none',
+                  boxShadow: '0 0 28px rgba(224,224,224,0.12), inset 0 1px 0 rgba(255,255,255,0.08)',
+                  transition: 'box-shadow 0.2s, background 0.2s',
+                  letterSpacing: '0.01em',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.boxShadow = '0 0 44px rgba(224,224,224,0.22), inset 0 1px 0 rgba(255,255,255,0.12)'
+                  e.currentTarget.style.background = 'rgba(224,224,224,0.15)'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.boxShadow = '0 0 28px rgba(224,224,224,0.12), inset 0 1px 0 rgba(255,255,255,0.08)'
+                  e.currentTarget.style.background = 'rgba(224,224,224,0.10)'
+                }}
+              >
+                Créer mon dossier gratuit
+              </a>
+
+              <a
+                href="#features"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  padding: '0.85rem 1.4rem',
+                  border: '1px solid rgba(224,224,224,0.18)',
+                  borderRadius: '0.5rem',
+                  color: '#9CA3AF',
+                  fontFamily: 'Space Grotesk, sans-serif',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  textDecoration: 'none',
+                  transition: 'border-color 0.2s, color 0.2s',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = 'rgba(224,224,224,0.35)'
+                  e.currentTarget.style.color = '#E0E0E0'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = 'rgba(224,224,224,0.18)'
+                  e.currentTarget.style.color = '#9CA3AF'
+                }}
+              >
+                Voir comment ça marche
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+
+            {/* Legal micro-note */}
+            <p style={{
+              margin: 0,
+              color: '#4B5563',
+              fontSize: '0.72rem',
+              fontFamily: 'JetBrains Mono, monospace',
+            }}>
+              * Inscription requise. Vos données ne quittent jamais votre appareil.
+            </p>
+          </div>
+        </div>
+
+        {/* Right — App mockup */}
+        <div data-animate style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="hero-visual">
+          <AppMockup />
+        </div>
+      </div>
+
+      <style>{`
+        @media (min-width: 900px) {
+          .hero-inner {
+            flex-direction: row !important;
+            align-items: center !important;
+          }
+          .hero-text {
+            max-width: 42rem !important;
+          }
+        }
+      `}</style>
+    </section>
+  )
+}
+
+function AppMockup() {
+  return (
+    <div style={{
+      width: 'clamp(260px, 32vw, 340px)',
+      borderRadius: '1.5rem',
+      background: 'rgba(255,255,255,0.04)',
+      border: '1px solid rgba(224,224,224,0.12)',
+      backdropFilter: 'blur(20px)',
+      padding: '1.5rem',
+      boxShadow: '0 0 60px rgba(224,224,224,0.07), 0 24px 48px rgba(0,0,0,0.5)',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '0.85rem',
+    }}>
+      {/* Header bar */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '0.8rem', color: '#E0E0E0', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+          MedSecure
+        </span>
+        <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', color: '#22C55E', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.2)', padding: '0.15rem 0.5rem', borderRadius: '9999px' }}>
+          LOCAL
+        </span>
+      </div>
+
+      {/* Category cards */}
+      {[
+        { icon: '💊', label: 'Ordonnances', count: '12 docs' },
+        { icon: '🩺', label: 'Médecine Générale', count: '8 docs' },
+        { icon: '🧪', label: 'Analyses Labo', count: '5 docs' },
+        { icon: '🦴', label: 'Imagerie', count: '3 docs' },
+      ].map(cat => (
+        <div key={cat.label} style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.75rem',
+          padding: '0.65rem 0.85rem',
+          background: 'rgba(255,255,255,0.03)',
+          border: '1px solid rgba(224,224,224,0.07)',
+          borderRadius: '0.625rem',
+        }}>
+          <span style={{ fontSize: '1rem' }}>{cat.icon}</span>
+          <span style={{ flex: 1, fontFamily: 'Space Grotesk, sans-serif', fontSize: '0.78rem', color: '#D1D5DB' }}>{cat.label}</span>
+          <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.62rem', color: '#6B7280' }}>{cat.count}</span>
+        </div>
+      ))}
+
+      {/* Bottom bar */}
+      <div style={{ borderTop: '1px solid rgba(224,224,224,0.07)', paddingTop: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', color: '#4B5563' }}>IndexedDB · 0 Ko cloud</span>
+        <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', color: '#22C55E' }}>🔒 chiffré</span>
+      </div>
+    </div>
+  )
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\sections\index.ts
+// ==========================================
+
+```ts
+export { default as Hero } from './Hero'
+export { default as PainPoints } from './PainPoints'
+export { default as SolutionBridge } from './SolutionBridge'
+export { default as Features } from './Features'
+export { default as SocialProof } from './SocialProof'
+export { default as Pricing } from './Pricing'
+export { default as FAQ } from './FAQ'
+export { default as CTAFinal } from './CTAFinal'
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\sections\PainPoints.tsx
+// ==========================================
+
+```tsx
+import { useEffect, useRef } from 'react'
+
+const PAINS = [
+  {
+    icon: '🗂️',
+    title: "L'urgence sans historique",
+    desc: "Votre carnet de santé est introuvable. Les urgentistes opèrent à l'aveugle sur vos allergies et traitements en cours.",
+  },
+  {
+    icon: '💊',
+    title: 'Ordonnances éparpillées',
+    desc: "Médecin généraliste, spécialiste, pharmacien — chacun a une pièce du puzzle. Personne n'a le tableau complet.",
+  },
+  {
+    icon: '📁',
+    title: 'Dossiers cloisonnés',
+    desc: "Vos bilans sanguins chez un médecin, vos radios chez un autre. La continuité des soins est une fiction administrative.",
+  },
+  {
+    icon: '☁️',
+    title: 'Vos données sur des clouds étrangers',
+    desc: "La majorité des apps santé stockent vos données sur des serveurs distants. Qui y a accès ? Pour quoi faire ?",
+  },
+  {
+    icon: '👨‍👩‍👧',
+    title: 'La famille sans coordination',
+    desc: "Suivi des enfants, accompagnement d'un parent âgé — chaque proche est un dossier séparé, géré dans le chaos.",
+  },
+]
+
+export default function PainPoints() {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement
+            const delay = Number(el.dataset.delay ?? 0)
+            setTimeout(() => {
+              el.style.opacity = '1'
+              el.style.transform = 'translateY(0)'
+            }, delay)
+            observer.unobserve(el)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    cardRefs.current.forEach(el => {
+      if (!el) return
+      el.style.opacity = '0'
+      el.style.transform = 'translateY(2rem)'
+      el.style.transition = 'opacity 0.55s ease, transform 0.55s ease'
+      observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section style={{ background: '#0A0A0A', padding: '6rem 1.5rem' }}>
+      <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+          <h2 style={{
+            margin: '0 0 1rem',
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(1.6rem, 3.5vw, 2.5rem)',
+            color: '#fff',
+            letterSpacing: '-0.02em',
+            lineHeight: 1.15,
+          }}>
+            Le système de santé a 5 angles morts.<br />
+            <span style={{ color: '#9CA3AF', fontWeight: 700 }}>Vous en payez le prix.</span>
+          </h2>
+          <p style={{ color: '#6B7280', fontSize: '1rem', maxWidth: '36rem', margin: '0 auto', lineHeight: 1.6 }}>
+            Des millions de patients subissent chaque jour des ruptures de suivi médical évitables.
+          </p>
+        </div>
+
+        {/* Grid */}
+        <div className="pain-grid">
+          {PAINS.map((pain, i) => (
+            <div
+              key={pain.title}
+              ref={el => { cardRefs.current[i] = el }}
+              data-delay={i * 80}
+              style={{
+                background: 'rgba(255,255,255,0.03)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                backdropFilter: 'blur(4px)',
+                borderRadius: '0.875rem',
+                padding: '1.75rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+                transition: 'border-color 0.2s, box-shadow 0.2s',
+                cursor: 'default',
+                /* last card centered via grid */
+                ...(i === 4 ? { gridColumn: '1 / -1', maxWidth: '22rem', margin: '0 auto', width: '100%' } as React.CSSProperties : {}),
+              }}
+              onMouseEnter={e => {
+                const el = e.currentTarget
+                el.style.borderColor = 'rgba(224,224,224,0.20)'
+                el.style.boxShadow = '0 0 28px rgba(224,224,224,0.06)'
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget
+                el.style.borderColor = 'rgba(255,255,255,0.08)'
+                el.style.boxShadow = 'none'
+              }}
+            >
+              {/* Icon */}
+              <div style={{
+                width: '3rem',
+                height: '3rem',
+                borderRadius: '0.625rem',
+                background: 'rgba(224,224,224,0.06)',
+                border: '1px solid rgba(224,224,224,0.12)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.4rem',
+                flexShrink: 0,
+              }}>
+                {pain.icon}
+              </div>
+
+              <h3 style={{
+                margin: 0,
+                fontFamily: 'Space Grotesk, sans-serif',
+                fontWeight: 700,
+                fontSize: '1rem',
+                color: '#F3F4F6',
+                lineHeight: 1.3,
+              }}>
+                {pain.title}
+              </h3>
+
+              <p style={{
+                margin: 0,
+                color: '#6B7280',
+                fontSize: '0.875rem',
+                lineHeight: 1.65,
+              }}>
+                {pain.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        .pain-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        @media (min-width: 640px) {
+          .pain-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .pain-grid > *:last-child {
+            grid-column: 1 / -1;
+            max-width: 22rem !important;
+            margin: 0 auto !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .pain-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+          .pain-grid > *:last-child {
+            grid-column: auto !important;
+            max-width: none !important;
+            margin: 0 !important;
+          }
+        }
+      `}</style>
+    </section>
+  )
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\sections\Pricing.tsx
+// ==========================================
+
+```tsx
+import { useEffect, useRef } from 'react'
+
+const SIGNUP_URL         = import.meta.env.VITE_SIGNUP_URL         ?? '/signup'
+const SIGNUP_URL_PREMIUM = import.meta.env.VITE_SIGNUP_URL_PREMIUM ?? '/signup?plan=premium'
+
+const FREE_FEATURES = [
+  { ok: true,  label: 'Inscription Supabase requise' },
+  { ok: true,  label: 'Scanner IA médical (ordonnances, documents)' },
+  { ok: true,  label: 'Dossier MedSecure (stockage local)' },
+  { ok: true,  label: 'Profil médical INS personnel' },
+  { ok: true,  label: 'Architecture Zéro-Serveur' },
+  { ok: false, label: 'Export Fiche OMS d\'urgence' },
+  { ok: false, label: 'Suivi multi-profils (famille)' },
+  { ok: false, label: 'PIN CARE (verrou sécurisé)' },
+  { ok: false, label: 'Only For Women' },
+]
+
+const PREMIUM_FEATURES = [
+  { ok: true, label: 'Tout le FREE inclus' },
+  { ok: true, label: 'Export Fiche OMS d\'urgence (IPS-FR)' },
+  { ok: true, label: 'Suivi Multi-Profils (enfants, famille)' },
+  { ok: true, label: 'PIN CARE (sanctuaire sécurisé)' },
+  { ok: true, label: 'Only For Women (espace intime privé)' },
+  { ok: true, label: 'Backup .loc-care chiffré' },
+  { ok: true, label: 'Support prioritaire' },
+]
+
+export default function Pricing() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return
+          const cards = sectionRef.current?.querySelectorAll<HTMLElement>('[data-card]')
+          cards?.forEach((el, i) => {
+            setTimeout(() => {
+              el.style.opacity = '1'
+              el.style.transform = 'translateY(0)'
+            }, i * 120)
+          })
+          observer.disconnect()
+        })
+      },
+      { threshold: 0.1 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section id="tarifs" style={{ background: '#0A0A0A', padding: '6rem 1.5rem' }}>
+      <div ref={sectionRef} style={{ maxWidth: '72rem', margin: '0 auto' }}>
+
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '0.75rem' }}>
+          <h2 style={{
+            margin: '0 0 0.75rem',
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)',
+            color: '#fff',
+            letterSpacing: '-0.02em',
+          }}>
+            Simple. Transparent.{' '}
+            <span style={{ background: 'linear-gradient(90deg, #E0E0E0, #fff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Au prix d'un café.
+            </span>
+          </h2>
+          <p style={{ color: '#6B7280', fontSize: '0.875rem', fontFamily: 'JetBrains Mono, monospace', marginBottom: '3rem' }}>
+            Inscription requise pour accéder à l'application. Vos données restent sur votre appareil.
+          </p>
+        </div>
+
+        {/* Cards grid */}
+        <div className="pricing-grid">
+
+          {/* FREE card */}
+          <div
+            data-card
+            style={{
+              position: 'relative',
+              background: 'rgba(255,255,255,0.025)',
+              border: '1px solid rgba(255,255,255,0.10)',
+              borderRadius: '1.25rem',
+              padding: '2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.5rem',
+              opacity: 0,
+              transform: 'translateY(2rem)',
+              transition: 'opacity 0.6s ease, transform 0.6s ease',
+            }}
+          >
+            <div>
+              <span style={labelStyle('#9CA3AF')}>GRATUIT</span>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.75rem 0 0.25rem' }}>
+                <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 900, fontSize: '3rem', color: '#E0E0E0', lineHeight: 1 }}>0 €</span>
+              </div>
+              <p style={{ color: '#6B7280', fontSize: '0.875rem', margin: 0 }}>Pour découvrir LOCATE CARE</p>
+            </div>
+
+            <FeatureList items={FREE_FEATURES} />
+
+            <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <a href={SIGNUP_URL} style={ctaGhost}>
+                Créer mon compte gratuit
+              </a>
+              <p style={noteStyle}>Aucune carte bancaire requise</p>
+            </div>
+          </div>
+
+          {/* PREMIUM card */}
+          <div
+            data-card
+            style={{
+              position: 'relative',
+              background: 'rgba(224,224,224,0.04)',
+              border: '1px solid rgba(224,224,224,0.40)',
+              borderRadius: '1.25rem',
+              padding: '2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.5rem',
+              boxShadow: '0 0 40px rgba(224,224,224,0.08), 0 0 80px rgba(224,224,224,0.04)',
+              opacity: 0,
+              transform: 'translateY(2rem)',
+              transition: 'opacity 0.6s ease, transform 0.6s ease',
+            }}
+          >
+            {/* Recommended badge */}
+            <span style={{
+              position: 'absolute',
+              top: '-0.875rem',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              background: '#E0E0E0',
+              color: '#050505',
+              fontFamily: 'Space Grotesk, sans-serif',
+              fontWeight: 900,
+              fontSize: '0.7rem',
+              letterSpacing: '0.08em',
+              padding: '0.25rem 0.9rem',
+              borderRadius: '9999px',
+              whiteSpace: 'nowrap',
+            }}>
+              RECOMMANDÉ
+            </span>
+
+            <div>
+              <span style={labelStyle('#FBBF24')}>PREMIUM</span>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.35rem', margin: '0.75rem 0 0.25rem' }}>
+                <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 900, fontSize: '3rem', color: '#E0E0E0', lineHeight: 1 }}>2,99 €</span>
+                <span style={{ color: '#6B7280', fontSize: '0.875rem' }}>/mois</span>
+              </div>
+              <p style={{ color: '#6B7280', fontSize: '0.875rem', margin: 0 }}>Le suivi santé complet</p>
+            </div>
+
+            <FeatureList items={PREMIUM_FEATURES} allOk />
+
+            <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <a
+                href={SIGNUP_URL_PREMIUM}
+                style={{
+                  display: 'block',
+                  textAlign: 'center',
+                  padding: '0.85rem 1.5rem',
+                  background: 'rgba(224,224,224,0.12)',
+                  border: '1px solid rgba(224,224,224,0.50)',
+                  borderRadius: '0.5rem',
+                  color: '#E0E0E0',
+                  fontFamily: 'Space Grotesk, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '0.95rem',
+                  textDecoration: 'none',
+                  boxShadow: '0 0 20px rgba(224,224,224,0.10)',
+                  transition: 'box-shadow 0.2s, background 0.2s',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.boxShadow = '0 0 36px rgba(224,224,224,0.20)'
+                  e.currentTarget.style.background = 'rgba(224,224,224,0.18)'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.boxShadow = '0 0 20px rgba(224,224,224,0.10)'
+                  e.currentTarget.style.background = 'rgba(224,224,224,0.12)'
+                }}
+              >
+                Commencer l'essai
+              </a>
+              <p style={noteStyle}>Résiliable à tout moment. Paiement via Stripe.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Anchor psychologique */}
+        <div style={{
+          marginTop: '3rem',
+          padding: '1.25rem 2rem',
+          background: 'rgba(255,255,255,0.03)',
+          border: '1px solid rgba(224,224,224,0.10)',
+          borderRadius: '0.75rem',
+          backdropFilter: 'blur(8px)',
+          textAlign: 'center',
+          color: '#9CA3AF',
+          fontSize: '1rem',
+          fontFamily: 'Space Grotesk, sans-serif',
+        }}>
+          ☕ Au prix d'un café par mois, votre santé vous appartient vraiment.
+        </div>
+      </div>
+
+      <style>{`
+        .pricing-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+          .pricing-grid {
+            grid-template-columns: repeat(2, 1fr);
+            align-items: start;
+          }
+        }
+      `}</style>
+    </section>
+  )
+}
+
+function FeatureList({ items, allOk }: { items: { ok: boolean; label: string }[]; allOk?: boolean }) {
+  return (
+    <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+      {items.map(item => (
+        <li key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+          <span style={{ flexShrink: 0, fontSize: '0.85rem' }}>
+            {item.ok || allOk ? '✅' : '❌'}
+          </span>
+          <span style={{
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontSize: '0.855rem',
+            color: item.ok || allOk ? '#D1D5DB' : '#4B5563',
+            textDecoration: item.ok || allOk ? 'none' : 'line-through',
+          }}>
+            {item.label}
+          </span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+const labelStyle = (color: string): React.CSSProperties => ({
+  fontFamily: 'JetBrains Mono, monospace',
+  fontSize: '0.65rem',
+  fontWeight: 600,
+  letterSpacing: '0.12em',
+  color,
+  textTransform: 'uppercase',
+})
+
+const ctaGhost: React.CSSProperties = {
+  display: 'block',
+  textAlign: 'center',
+  padding: '0.85rem 1.5rem',
+  border: '1px solid rgba(224,224,224,0.20)',
+  borderRadius: '0.5rem',
+  color: '#9CA3AF',
+  fontFamily: 'Space Grotesk, sans-serif',
+  fontWeight: 600,
+  fontSize: '0.9rem',
+  textDecoration: 'none',
+  transition: 'border-color 0.2s, color 0.2s',
+}
+
+const noteStyle: React.CSSProperties = {
+  margin: 0,
+  textAlign: 'center',
+  color: '#4B5563',
+  fontSize: '0.7rem',
+  fontFamily: 'JetBrains Mono, monospace',
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\sections\SocialProof.tsx
+// ==========================================
+
+```tsx
+import { useEffect, useRef } from 'react'
+
+const TESTIMONIALS = [
+  {
+    initials: 'M.L.',
+    name: 'Marie L.',
+    role: 'Maman de 3 enfants',
+    quote: "Enfin un endroit où centraliser les carnets de santé de mes enfants. Le fait que rien ne parte sur un cloud, c'est ce qui m'a convaincue.",
+  },
+  {
+    initials: 'T.R.',
+    name: 'Thomas R.',
+    role: 'Patient chronique',
+    quote: "J'ai plusieurs spécialistes. Avant, je réexpliquais tout à chaque rendez-vous. Maintenant j'exporte ma fiche OMS et c'est réglé en 30 secondes.",
+  },
+  {
+    initials: 'S.K.',
+    name: 'Sophia K.',
+    role: 'Aidante familiale',
+    quote: "Je gère le suivi médical de ma mère à distance. LOCATE CARE m'a permis d'avoir enfin une vue complète sans jongler entre les ordonnances papier.",
+  },
+]
+
+export default function SocialProof() {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return
+          cardRefs.current.forEach((el, i) => {
+            if (!el) return
+            setTimeout(() => {
+              el.style.opacity = '1'
+              el.style.transform = 'translateY(0)'
+            }, i * 100)
+          })
+          observer.disconnect()
+        })
+      },
+      { threshold: 0.12 }
+    )
+    if (cardRefs.current[0]) observer.observe(cardRefs.current[0])
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section style={{ background: '#0A0A0A', padding: '5rem 1.5rem' }}>
+      <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '2.75rem' }}>
+          <p style={{
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.7rem',
+            color: '#22C55E',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            marginBottom: '0.5rem',
+          }}>
+            ✦ Testé par nos PREMIUM_GUEST depuis mars 2026
+          </p>
+          <h2 style={{
+            margin: 0,
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontWeight: 800,
+            fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
+            color: '#D1D5DB',
+            letterSpacing: '-0.01em',
+          }}>
+            Ils ont repris la main sur leur santé numérique.
+          </h2>
+        </div>
+
+        {/* Testimonial cards */}
+        <div className="social-grid">
+          {TESTIMONIALS.map((t, i) => (
+            <div
+              key={t.name}
+              ref={el => { cardRefs.current[i] = el }}
+              style={{
+                background: 'rgba(255,255,255,0.025)',
+                border: '1px solid rgba(224,224,224,0.08)',
+                borderRadius: '1rem',
+                padding: '1.75rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.25rem',
+                opacity: 0,
+                transform: 'translateY(1.5rem)',
+                transition: 'opacity 0.55s ease, transform 0.55s ease',
+              }}
+            >
+              {/* Quote */}
+              <p style={{
+                margin: 0,
+                color: '#9CA3AF',
+                fontSize: '0.9rem',
+                lineHeight: 1.7,
+                fontStyle: 'italic',
+              }}>
+                "{t.quote}"
+              </p>
+
+              {/* Author */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: 'auto' }}>
+                <div style={{
+                  width: '2.25rem',
+                  height: '2.25rem',
+                  borderRadius: '50%',
+                  background: 'rgba(224,224,224,0.08)',
+                  border: '1px solid rgba(224,224,224,0.15)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontFamily: 'JetBrains Mono, monospace',
+                  fontSize: '0.65rem',
+                  color: '#E0E0E0',
+                  flexShrink: 0,
+                }}>
+                  {t.initials}
+                </div>
+                <div>
+                  <p style={{ margin: 0, fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '0.85rem', color: '#F3F4F6' }}>{t.name}</p>
+                  <p style={{ margin: 0, fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: '#6B7280' }}>{t.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* IP badge */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem' }}>
+          <span style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.4rem 1rem',
+            background: 'rgba(224,224,224,0.03)',
+            border: '1px solid rgba(224,224,224,0.10)',
+            borderRadius: '0.375rem',
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.65rem',
+            color: '#4B5563',
+            letterSpacing: '0.04em',
+          }}>
+            🔒 IP protégée — Dépôt e-Soleau DSO2026012471
+          </span>
+        </div>
+      </div>
+
+      <style>{`
+        .social-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        @media (min-width: 640px) {
+          .social-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+          .social-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+      `}</style>
+    </section>
+  )
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\sections\SolutionBridge.tsx
+// ==========================================
+
+```tsx
+import { useEffect, useRef } from 'react'
+
+export default function SolutionBridge() {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return
+          const el = ref.current
+          if (!el) return
+          el.style.opacity = '1'
+          el.style.transform = 'scaleX(1)'
+          observer.disconnect()
+        })
+      },
+      { threshold: 0.5 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div style={{ background: '#050505', padding: '0 1.5rem' }}>
+      <div
+        ref={ref}
+        style={{
+          maxWidth: '72rem',
+          margin: '0 auto',
+          borderTop: '1px solid rgba(224,224,224,0.12)',
+          borderBottom: '1px solid rgba(224,224,224,0.12)',
+          padding: '1.75rem 0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1rem',
+          opacity: 0,
+          transform: 'scaleX(0.92)',
+          transformOrigin: 'center',
+          transition: 'opacity 0.7s ease, transform 0.7s ease',
+        }}
+      >
+        <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(224,224,224,0.20))' }} />
+        <p style={{
+          margin: 0,
+          fontFamily: 'Space Grotesk, sans-serif',
+          fontWeight: 800,
+          fontSize: 'clamp(0.95rem, 2vw, 1.25rem)',
+          color: '#E0E0E0',
+          textAlign: 'center',
+          whiteSpace: 'nowrap',
+          textShadow: '0 0 28px rgba(224,224,224,0.35)',
+          letterSpacing: '-0.01em',
+        }}>
+          La solution existe. Elle s'appelle{' '}
+          <span style={{
+            background: 'linear-gradient(90deg, #E0E0E0, #fff)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}>
+            LOCATE CARE.
+          </span>
+        </p>
+        <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(224,224,224,0.20))' }} />
+      </div>
+    </div>
+  )
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\shared\CircuitNodes.tsx
+// ==========================================
+
+```tsx
+const NODES = [
+  { top: '12%',  left: '8%',   delay: '0s',    duration: '3.2s' },
+  { top: '34%',  left: '88%',  delay: '0.8s',  duration: '2.7s' },
+  { top: '58%',  left: '15%',  delay: '1.4s',  duration: '4.1s' },
+  { top: '75%',  left: '72%',  delay: '0.3s',  duration: '3.6s' },
+  { top: '20%',  left: '55%',  delay: '2.1s',  duration: '2.9s' },
+  { top: '88%',  left: '38%',  delay: '1.7s',  duration: '3.8s' },
+  { top: '48%',  left: '92%',  delay: '0.6s',  duration: '4.4s' },
+]
+
+export default function CircuitNodes() {
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 0,
+        pointerEvents: 'none',
+      }}
+    >
+      {NODES.map((node, i) => (
+        <span
+          key={i}
+          style={{
+            position: 'absolute',
+            top: node.top,
+            left: node.left,
+            width: '6px',
+            height: '6px',
+            borderRadius: '50%',
+            background: 'rgba(224,224,224,0.5)',
+            boxShadow: '0 0 8px 2px rgba(224,224,224,0.3)',
+            animation: `nodePulse ${node.duration} ${node.delay} ease-in-out infinite`,
+          }}
+        />
+      ))}
+    </div>
+  )
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\shared\DataStream.tsx
+// ==========================================
+
+```tsx
+import { useEffect, useRef } from 'react'
+
+const CHARS = '0123456789ABCDEF'
+const COLUMN_COUNT = 20
+
+interface Column {
+  x: number
+  y: number
+  speed: number
+  chars: string[]
+  opacity: number
+}
+
+export default function DataStream() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    const resize = () => {
+      canvas.width  = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+    resize()
+    window.addEventListener('resize', resize)
+
+    const colWidth = Math.floor(window.innerWidth / COLUMN_COUNT)
+
+    const columns: Column[] = Array.from({ length: COLUMN_COUNT }, (_, i) => ({
+      x:       i * colWidth + Math.random() * colWidth,
+      y:       Math.random() * -window.innerHeight,
+      speed:   0.3 + Math.random() * 0.7,
+      chars:   Array.from({ length: 20 }, () => CHARS[Math.floor(Math.random() * CHARS.length)]),
+      opacity: 0.05 + Math.random() * 0.1,
+    }))
+
+    let rafId: number
+    const fontSize = 13
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.font = `${fontSize}px 'JetBrains Mono', monospace`
+
+      columns.forEach(col => {
+        col.y += col.speed
+        if (col.y > canvas.height + col.chars.length * fontSize) {
+          col.y = -col.chars.length * fontSize
+          col.chars = col.chars.map(() => CHARS[Math.floor(Math.random() * CHARS.length)])
+        }
+
+        col.chars.forEach((ch, i) => {
+          const alpha = col.opacity * (1 - i / col.chars.length)
+          ctx.fillStyle = `rgba(224,224,224,${alpha.toFixed(3)})`
+          ctx.fillText(ch, col.x, col.y + i * fontSize)
+        })
+
+        // mutate one char per frame to give flicker
+        const idx = Math.floor(Math.random() * col.chars.length)
+        col.chars[idx] = CHARS[Math.floor(Math.random() * CHARS.length)]
+      })
+
+      rafId = requestAnimationFrame(draw)
+    }
+
+    rafId = requestAnimationFrame(draw)
+
+    return () => {
+      cancelAnimationFrame(rafId)
+      window.removeEventListener('resize', resize)
+    }
+  }, [])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 0,
+        pointerEvents: 'none',
+        width: '100vw',
+        height: '100vh',
+      }}
+    />
+  )
+}
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\components\shared\index.tsx
+// ==========================================
+
+```tsx
+import DataStream from './DataStream'
+import CircuitNodes from './CircuitNodes'
+
+export function BackgroundEffects() {
+  return (
+    <>
+      <DataStream />
+      <CircuitNodes />
+    </>
+  )
+}
+
+export { DataStream, CircuitNodes }
+
+```
+
+// ==========================================
+// 📂 FICHIER : \src\index.css
+// ==========================================
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --care-silver: #E0E0E0;
+  --care-rose:   #E6C7C2;
+  --care-dark:   #121212;
+  --care-black:  #050505;
+  --care-green:  #22C55E;
+  --care-red:    #DC2626;
+  --care-muted:  #6B7280;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--care-black);
+  color: #fff;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(1.5rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.4); }
+}
+```
+
+// ==========================================
+// 📂 FICHIER : \src\main.tsx
+// ==========================================
+
+```tsx
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.tsx'
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+```
+
+// ==========================================
+// 📂 FICHIER : \tailwind.config.js
+// ==========================================
+
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'care-silver': '#E0E0E0',
+        'care-rose':   '#E6C7C2',
+        'care-dark':   '#121212',
+        'care-black':  '#050505',
+      },
+      fontFamily: {
+        sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+      },
+    },
+  },
+  plugins: [],
+}
+
+```
+

@@ -31,14 +31,14 @@ export default function Footer() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 <a href="/cgu" style={footerLinkStyle}>CGU</a>
                 <a href="/confidentialite" style={footerLinkStyle}>Politique de confidentialité</a>
-                <a href="https://www.locate-systems.com" target="_blank" rel="noopener noreferrer" style={footerLinkStyle}>locate-systems.com</a>
+                <a href="https://locatesystems.com" target="_blank" rel="noopener noreferrer" style={footerLinkStyle}>locatesystems.com</a>
               </div>
             </div>
 
             <div>
               <p style={{ color: '#E0E0E0', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Réseaux</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <a href="https://www.linkedin.com/in/nicolas-loesel-a510213aa" target="_blank" rel="noopener noreferrer" style={footerLinkStyle}>LinkedIn — Nicolas Loesel</a>
+                <a href="https://linkedin.com/company/locate-systems" target="_blank" rel="noopener noreferrer" style={footerLinkStyle}>LinkedIn — Locate Systems</a>
                 <a href="https://instagram.com/nicolas_loesel" target="_blank" rel="noopener noreferrer" style={footerLinkStyle}>Instagram — @nicolas_loesel</a>
               </div>
             </div>
