@@ -1,13 +1,15 @@
-import CosmicFlow from '../CosmicFlow'
+import DataStream from './DataStream'
 import CircuitNodes from './CircuitNodes'
+import CosmicFlow from '../CosmicFlow'
 
 export function BackgroundEffects() {
   return (
     <>
       <CosmicFlow />
+      <DataStream />
       <CircuitNodes />
     </>
   )
 }
 
-export { CosmicFlow, CircuitNodes }
+export { DataStream, CircuitNodes, CosmicFlow }
