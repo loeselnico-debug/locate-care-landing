@@ -31,7 +31,7 @@ export default function Footer() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 <a href="/cgu" style={footerLinkStyle}>CGU</a>
                 <a href="/confidentialite" style={footerLinkStyle}>Politique de confidentialité</a>
-                <a href="https://locatesystems.com" target="_blank" rel="noopener noreferrer" style={footerLinkStyle}>locatesystems.com</a>
+                <a href="https://locate-systems.com" target="_blank" rel="noopener noreferrer" style={footerLinkStyle}>locate-systems.com</a>
               </div>
             </div>
 
